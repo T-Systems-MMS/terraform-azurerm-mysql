@@ -77,3 +77,14 @@ resource "azurerm_mysql_firewall_rule" "mysql_firewall_rule" {
   start_ip_address    = local.mysql_firewall_rule[each.key].start_ip_address
   end_ip_address      = local.mysql_firewall_rule[each.key].end_ip_address
 }
+
+
+resource "azurerm_mysql_database" "mysql_database" {
+  for_each = var.mysql_database
+
+  name                = local.mysql_database[each.key].name == "" ? each.key : local.mysql_database[each.key].name
+  server_name         = local.mysql_database[each.key].server_name
+  resource_group_name = local.mysql_database[each.key].resource_group_name
+  charset             = local.mysql_database[each.key].charset
+  collation           = local.mysql_database[each.key].collation
+}

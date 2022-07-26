@@ -11,3 +11,14 @@ output "mysql_server" {
   }
 }
 
+output "mysql_database" {
+  description = "azurerm_mysql_database results"
+  value = {
+    for mysql_database in keys(azurerm_mysql_database.mysql_database) :
+    mysql_database => {
+      id          = azurerm_mysql_database.mysql_database[mysql_database].id
+      name        = azurerm_mysql_database.mysql_database[mysql_database].name
+      server_name = azurerm_mysql_database.mysql_database[mysql_database].server_name
+    }
+  }
+}

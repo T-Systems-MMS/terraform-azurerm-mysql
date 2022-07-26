@@ -18,6 +18,11 @@ variable "mysql_firewall_rule" {
   default     = {}
   description = "resource definition, default settings are defined within locals and merged with var settings"
 }
+variable "mysql_database" {
+  type        = any
+  default     = {}
+  description = "resource definition, default settings are defined within locals and merged with var settings"
+}
 
 locals {
   default = {
@@ -57,6 +62,11 @@ locals {
     mysql_firewall_rule = {
       name = ""
     }
+    mysql_database = {
+      name      = ""
+      charset   = "utf8"
+      collation = "utf8_unicode_ci"
+    }
   }
 
   # compare and merge custom and default values
@@ -90,5 +100,9 @@ locals {
   mysql_firewall_rule = {
     for mysql_firewall_rule in keys(var.mysql_firewall_rule) :
     mysql_firewall_rule => merge(local.default.mysql_firewall_rule, var.mysql_firewall_rule[mysql_firewall_rule])
+  }
+  mysql_database = {
+    for mysql_database in keys(var.mysql_database) :
+    mysql_database => merge(local.default.mysql_database, var.mysql_database[mysql_database])
   }
 }
