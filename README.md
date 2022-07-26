@@ -25,6 +25,7 @@ This module manages Azure MySQL.
 | Name | Type |
 |------|------|
 | azurerm_mysql_configuration.mysql_configuration | resource |
+| azurerm_mysql_database.mysql_database | resource |
 | azurerm_mysql_firewall_rule.mysql_firewall_rule | resource |
 | azurerm_mysql_server.mysql_server | resource |
 | azurerm_mysql_virtual_network_rule.mysql_virtual_network_rule | resource |
@@ -34,6 +35,7 @@ This module manages Azure MySQL.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | mysql_configuration | resource definition, default settings are defined within locals and merged with var settings | `any` | `{}` | no |
+| mysql_database | resource definition, default settings are defined within locals and merged with var settings | `any` | `{}` | no |
 | mysql_firewall_rule | resource definition, default settings are defined within locals and merged with var settings | `any` | `{}` | no |
 | mysql_server | resource definition, default settings are defined within locals and merged with var settings | `any` | `{}` | no |
 | mysql_virtual_network_rule | resource definition, default settings are defined within locals and merged with var settings | `any` | `{}` | no |
@@ -42,6 +44,7 @@ This module manages Azure MySQL.
 
 | Name | Description |
 |------|-------------|
+| mysql_database | azurerm_mysql_database results |
 | mysql_server | azurerm_mysql_server results |
 
 ## Examples
