@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.2](https://github.com/T-Systems-MMS/terraform-azurerm-mysql/tree/1.0.2) (2022-07-26)
+
+[Full Changelog](https://github.com/T-Systems-MMS/terraform-azurerm-mysql/compare/1.0.1...1.0.2)
+
+**Implemented enhancements:**
+
+- add mysql\_database [\#8](https://github.com/T-Systems-MMS/terraform-azurerm-mysql/pull/8) ([michaelamattes](https://github.com/michaelamattes))
+
+**Merged pull requests:**
+
+- Update hashicorp/setup-terraform action to v2 [\#7](https://github.com/T-Systems-MMS/terraform-azurerm-mysql/pull/7) ([renovate[bot]](https://github.com/apps/renovate))
+- Update creyD/prettier\_action action to v4 [\#6](https://github.com/T-Systems-MMS/terraform-azurerm-mysql/pull/6) ([renovate[bot]](https://github.com/apps/renovate))
+- Update actions/checkout action to v3 [\#5](https://github.com/T-Systems-MMS/terraform-azurerm-mysql/pull/5) ([renovate[bot]](https://github.com/apps/renovate))
+- Update github-actions-x/commit action to v2.9 [\#4](https://github.com/T-Systems-MMS/terraform-azurerm-mysql/pull/4) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [1.0.1](https://github.com/T-Systems-MMS/terraform-azurerm-mysql/tree/1.0.1) (2022-07-25)
 
 [Full Changelog](https://github.com/T-Systems-MMS/terraform-azurerm-mysql/compare/1.0.0...1.0.1)
