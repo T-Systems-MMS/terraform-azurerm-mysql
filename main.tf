@@ -101,7 +101,7 @@ resource "azurerm_mysql_flexible_server" "mysql_flexible_server" {
   source_server_id                  = local.mysql_flexible_server[each.key].source_server_id
   replication_role                  = local.mysql_flexible_server[each.key].replication_role
   administrator_login               = local.mysql_flexible_server[each.key].administrator_login
-  administrator_login_password      = local.mysql_flexible_server[each.key].administrator_login_password
+  administrator_password            = local.mysql_flexible_server[each.key].administrator_password
   backup_retention_days             = local.mysql_flexible_server[each.key].backup_retention_days
   create_mode                       = local.mysql_flexible_server[each.key].create_mode
   delegated_subnet_id               = local.mysql_flexible_server[each.key].delegated_subnet_id
@@ -133,6 +133,13 @@ resource "azurerm_mysql_flexible_server" "mysql_flexible_server" {
       iops              = local.mysql_flexible_server[each.key].storage.iops
       size_gb           = local.mysql_flexible_server[each.key].storage.size_gb
     }
+  }
+
+  lifecycle {
+    ignore_changes = [
+      zone,
+      high_availability.0.standby_availability_zone
+    ]
   }
 
   tags = local.mysql_flexible_server[each.key].tags

@@ -95,18 +95,21 @@ locals {
       zone                              = 1
       create_mode                       = "Default"
       source_server_id                  = null
-      replication_role                  = "None"
+      replication_role                  = null
       administrator_login               = null
-      administrator_login_password      = null
+      administrator_password            = null
       backup_retention_days             = 7
       delegated_subnet_id               = null
       geo_redundant_backup_enabled      = false
       point_in_time_restore_time_in_utc = null
       private_dns_zone_id               = null
-      high_availability                 = {}
-      maintenance_window                = {}
-      storage                           = {}
-      tags                              = {}
+      high_availability = {
+        mode                      = ""
+        standby_availability_zone = 2
+      }
+      maintenance_window = {}
+      storage            = {}
+      tags               = {}
     }
     mysql_flexible_server_configuration = {
       name = ""
@@ -164,7 +167,7 @@ locals {
   }
 
   mysql_flexible_server = {
-    for mysql_fflexible_server in keys(var.mysql_flexible_server) :
+    for mysql_flexible_server in keys(var.mysql_flexible_server) :
     mysql_flexible_server => merge(
       local.mysql_flexible_server_values[mysql_flexible_server],
       {
