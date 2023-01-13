@@ -34,4 +34,39 @@ module "mysql" {
       end_ip_address      = "127.0.0.2"
     }
   }
+
+  mysql_flexible_server = {
+    service-mysql = {
+      location               = "westeurope"
+      resource_group_name    = "service-rg"
+      sku_name               = "B_Standard_B1s"
+      version                = "8.0.21"
+      administrator_login    = "mysqlroot"
+      administrator_password = "Password"
+      tags = {
+        service = "service_name"
+      }
+    }
+  }
+  mysql_flexible_server_configuration = {
+    slow_query_log = {
+      server_name         = module.mysql.mysql_flexible_server["service-mysql"].name
+      resource_group_name = "service-rg"
+      value               = "On"
+    }
+  }
+  mysql_flexible_server_firewall_rule = {
+    proxy = {
+      server_name         = module.mysql.mysql_flexible_server["service-mysql"].name
+      resource_group_name = "service-rg"
+      start_ip_address    = "127.0.0.1"
+      end_ip_address      = "127.0.0.2"
+    }
+  }
+  mysql_flexible_database = {
+    db = {
+      server_name         = module.mysql.mysql_flexible_server["service-mysql"].name
+      resource_group_name = "service-rg"
+    }
+  }
 }
