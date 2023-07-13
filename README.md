@@ -1,5 +1,7 @@
 # terraform-azurerm-mysql
 
+This module is deprecated. You can find the currently version here [https://registry.terraform.io/modules/T-Systems-MMS/container/azurerm/latest](https://registry.terraform.io/modules/telekom-mms/database/azurerm/latest).
+
 <!-- BEGIN_TF_DOCS -->
 # mysql
 
